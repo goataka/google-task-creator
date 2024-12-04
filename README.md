@@ -14,7 +14,7 @@ Language: JP [EN](README_EN.md)
 
 ## 今後の予定
 
-[Issues](https://github.com/GOAMI-Takaaki/google-task-creator/issues) で確認する事ができます。
+[Issues](https://github.com/goataka/google-task-creator/issues) で確認する事ができます。
 
 ## 始めるには
 
@@ -24,7 +24,7 @@ Language: JP [EN](README_EN.md)
 
 ### 準備
 
-1. [リリース](https://github.com/GOAMI-Takaaki/google-task-creator/releases)から最新をダウンロードします
+1. [リリース](https://github.com/goataka/google-task-creator/releases)から最新をダウンロードします
 1. ダウンロードしたファイルを任意のフォルダに解凍します
 
 ### インストール
@@ -50,4 +50,4 @@ Language: JP [EN](README_EN.md)
 
 ## 連絡
 
-[Discussion](https://github.com/GOAMI-Takaaki/google-task-creator/discussions) を使ってください。
+[Discussion](https://github.com/goataka/google-task-creator/discussions) を使ってください。
