@@ -28,15 +28,11 @@ function createTask(title, explanation) {
     });
 }
 
-chrome.browserAction.onClicked.addListener( function () {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        if (!tabs[0]) return;
-        const currentTab = tabs[0];
-        createTask(currentTab.title, currentTab.url);
-    });
+chrome.action.onClicked.addListener(tab => {
+    createTask(tab.title, tab.url);
 });
 
-chrome.runtime.onInstalled.addListener(function() {
+chrome.runtime.onInstalled.addListener(() => {
     const parent = chrome.contextMenus.create({
         id: "create_task_menu",
         title: "Create Task",
@@ -45,7 +41,7 @@ chrome.runtime.onInstalled.addListener(function() {
     });
 });
   
-chrome.contextMenus.onClicked.addListener(function(item){
+chrome.contextMenus.onClicked.addListener((item) => {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         if (!tabs[0]) return;
         const currentTab = tabs[0];
