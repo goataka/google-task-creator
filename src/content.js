@@ -12,47 +12,28 @@ function operate(elementSelector, retryCount, doOperation) {
 }
 
 const OPERATION_RETRY = 600;
-function createTask(title, explanation) {
-    operate("div[class='dwlvNd']", OPERATION_RETRY, element => {
-        popupDialog(element, () => {
-            setDetail(title, explanation);
-        });
+function content_createTask(title, explanation) {
+    popupDialog(() => {
+        setDetail(title, explanation);
     });
 }
 
-function popupDialog(parent, onPopup) {
-    const newDiv = document.createElement('div');
-    newDiv.setAttribute('jsaction', 'JIbuQc:t0O6ic(vTZnL);');
-    newDiv.setAttribute('style', 'visibility: hidden;');
-    parent.insertBefore(newDiv, undefined);
-        
-    const newButton = document.createElement('button');
-    newButton.setAttribute('jsname', 'vTZnL');
-    newButton.setAttribute('jscontroller', 'soHxf');
-    newButton.setAttribute('jsaction', 'click:cOuCgd;');
-    newDiv.appendChild(newButton);
-
-    newButton.click();
-    onPopup();
-    setTimeout(newDiv.remove, 1000);
+function popupDialog(onPopup) {
+    document.evaluate("//button[.//span[contains(text(), '作成')]]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+    operate("div[aria-label='タスクを追加']", OPERATION_RETRY, onPopup);
 }
 
 function setDetail(title, explanation) {            
-    operate("div[aria-controls='tabTask']", OPERATION_RETRY, element => {
-        element.click();
-    });
-
     operate("input[aria-label='タイトルを追加']", OPERATION_RETRY, element => {
-        element.value = title;;
+        element.setAttribute("data-initial-value", title);
+        element.value = title;
     });
     
     operate("textarea[aria-label='説明を追加']", OPERATION_RETRY, element => {
-        element.textContent = explanation;
-        //TODO change to other way of making place holder invisible
-        element.parentElement.previousElementSibling.style.display='none';
+        element.value = explanation;
     });
-    
-    operate("div[aria-label='終日']", OPERATION_RETRY, element => {
+
+    operate("input[aria-label='終日']", OPERATION_RETRY, element => {
         element.click();
     });
 }
@@ -67,12 +48,14 @@ const REQUEST_ACTION_CREATE_TASK = "createTask";
 const REQUEST_ACTION_GET_LINK = "getLink";
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    console.log("recieveMessage");
     switch (request.action) {
         case REQUEST_ACTION_CREATE_TASK:
-            createTask(request.title, request.explanation);
+            content_createTask(request.title, request.explanation);
             sendResponse({response: "finished"});
             break;
         case REQUEST_ACTION_GET_LINK:
+            console.log(clickedElement);
             sendResponse({title: clickedElement.innerText, url: clickedElement.href});
             break;
         default:

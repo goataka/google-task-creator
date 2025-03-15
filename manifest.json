@@ -1,7 +1,7 @@
 {
   "name":"Google Task Creator",
-  "version":"1.0.0",
-  "manifest_version":2,
+  "version":"1.1.0",
+  "manifest_version":3,
   "description":"Create Google Task.",
   "icons": {
     "16": "images/icon16.png",
@@ -11,26 +11,24 @@
   "permissions":[
      "contextMenus",
      "activeTab",
+     "scripting",
      "tabs"
   ],
-  "browser_action":{
+  "action":{
     "default_icon": {
         "19": "images/icon19.png"
     },
      "default_title":"Google Task Creator"
   },
-  "background":{
-     "scripts":[
-        "src/event.js"
-     ],
-     "persistent":false
+  "background": {
+    "service_worker": "src/background.js"
   },
   "content_scripts":[
      {
         "matches":[
            "http://*/*",
            "https://*/*"
-        ],
+        ],     
         "js":[
            "src/content.js"
         ]

@@ -2,7 +2,11 @@
 
 Language: JP [EN](README_EN.md)
 
-このツールはGoogle Todo Listのタスクを作成するChromeの拡張機能です。[Chrome Web Store](https://chrome.google.com/webstore)で利用できるよう申請中です。
+このツールはGoogle Todo Listのタスクを作成するChromeの拡張機能です。
+
+## ストア
+
+https://chromewebstore.google.com/detail/google-task-creator/hgnahndgpdhdnfhmphicbkbfjlcoiiim
 
 ## 機能
 

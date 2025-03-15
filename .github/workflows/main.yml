@@ -4,6 +4,7 @@ on:
   pull_request:
     types: [closed]
     branches: [ main ]
+
 jobs:
   release:
     name: Release
@@ -11,7 +12,7 @@ jobs:
     if: startsWith(github.event.pull_request.title, 'v')
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Create Release
