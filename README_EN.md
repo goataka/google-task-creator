@@ -15,7 +15,7 @@ This is a Chrome extension supports to create a task of Google Todo List. Curren
 
 ## Roadmap
 
-See [Issues](https://github.com/GOAMI-Takaaki/google-task-creator/issues) of this repositry.
+See [Issues](https://github.com/goataka/google-task-creator/issues) of this repositry.
 
 ## Get Started
 
@@ -25,7 +25,7 @@ See [Issues](https://github.com/GOAMI-Takaaki/google-task-creator/issues) of thi
 
 ### Prepare
 
-1. Download latest version from [Release](https://github.com/GOAMI-Takaaki/google-task-creator/releases)
+1. Download latest version from [Release](https://github.com/goataka/google-task-creator/releases)
 1. Unzip files to a folder
 
 ### Install
@@ -47,4 +47,4 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 ## Contact
 
-Use [Discussion](https://github.com/GOAMI-Takaaki/google-task-creator/discussions).
+Use [Discussion](https://github.com/goataka/google-task-creator/discussions).
